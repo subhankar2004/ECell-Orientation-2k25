@@ -16,6 +16,7 @@ const Page = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [isScanning, setIsScanning] = useState(false);
+  const [isFound,setIsFound] = useState(false);
   const scannerRef = useRef(null);
 
   useEffect(() => {
@@ -93,6 +94,8 @@ const Page = () => {
     console.log("Scanned QR code:", decodedText);
     // Add your logic here to process the QR code data
     alert(`Successfully scanned: ${decodedText}`);
+    setIsFound(true);
+    router.push("/startup");
   };
 
   return (
